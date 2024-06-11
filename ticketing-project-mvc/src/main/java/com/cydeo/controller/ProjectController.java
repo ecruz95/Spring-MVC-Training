@@ -62,8 +62,11 @@ public class ProjectController {
     @GetMapping("/update/{projectCode}")
     public String editProject(@PathVariable("projectCode") String projectCode, Model model){
 
+        //To be pulled to fill form
         model.addAttribute("project",projectService.findById(projectCode));
         model.addAttribute("managers",userService.findManagers());
+
+        //To be displayed on list
         model.addAttribute("projects",projectService.findAll());
 
         return "/project/update";

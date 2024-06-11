@@ -33,6 +33,9 @@ public class ProjectServiceImpl extends AbstractMapService<ProjectDTO,String> im
     @Override
     public void update(ProjectDTO object) {
 
+        /*When using Update feature, Status will be null due to setters having no reference in the form.
+        We will pull the status from the "database" and set a value before the update passes to allow for successful save.
+         */
         if(object.getProjectStatus()==null){
             object.setProjectStatus(findById(object.getProjectCode()).getProjectStatus());
         }
