@@ -15,6 +15,7 @@ public class TaskDTO {
     private Long id;
 
     private ProjectDTO project;
+
     private UserDTO assignedEmployee;
     private String taskSubject;
     private String taskDetail;
